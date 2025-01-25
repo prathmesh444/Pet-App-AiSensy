@@ -17,16 +17,12 @@ import 'package:pet_app/view/helper/widgets/text.dart';
 class HomeController extends GetxController{
 
   PagingController<int, Pet> pagingController = PagingController(firstPageKey: 0);
-  List<Pet> _pets = [];
-  List<Pet> filteredPets = [];
   bool fetchingPets = false;
   bool listEnded = false;
 
   fetchPets({int page = 0, int pageSize = 10}) async {
     try {
       List<Pet> newPetList = PetRepo.getPetsPaginated(offset: page, limit: pageSize);
-      _pets.addAll(newPetList);
-      filteredPets.assignAll(_pets);
       PrintLog.printLog("Length of fetched pets: ${newPetList.length}");
       final isLastPage = newPetList.length < pageSize;
       if (isLastPage) {
@@ -47,10 +43,18 @@ class HomeController extends GetxController{
   }
 
   void filterPets(String value) {
-    if(value.isEmpty) pagingController.refresh();
-    else {
+    if(value.isEmpty) {
+      pagingController.refresh();
+    } else {
       List<Pet>? filteredPets = pagingController.value.itemList?.where((element) => element.toString().toLowerCase().contains(value.toLowerCase())).toList();
-      pagingController.appendPage(filteredPets ?? [], double.infinity.toInt());
+      pagingController.value = PagingState<int, Pet>(
+        itemList: [],
+        error: null,
+        nextPageKey: 0,
+      );
+      PrintLog.printLog("Filtered pets: ${filteredPets?.length}");
+      pagingController.appendPage(filteredPets ?? [], 10);
+      PrintLog.printLog("Paging controller pets: ${pagingController.itemList?.length}");
     }
     update();
   }
@@ -103,9 +107,7 @@ class HomeController extends GetxController{
 
   void updatePetDetails({required int filterPetIndex,required Pet pet}) {
    try{
-     filteredPets[filterPetIndex] = pet;
-     int parentPetListIndex = int.parse(pet.id[pet.id.length - 1]);
-     _pets[parentPetListIndex] = pet;
+     pagingController.itemList?[filterPetIndex] = pet;
      update();
    }
    catch (e){

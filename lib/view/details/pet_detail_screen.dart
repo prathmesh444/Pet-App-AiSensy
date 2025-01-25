@@ -59,176 +59,173 @@ class _PetDetailScreenState extends State<PetDetailScreen> {
         ),
         body: Stack(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                /// Pet Image
-                Center(
-                  child: Hero(
-                    tag: widget.pet.id,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.asset(
-                        widget.pet.image,
-                        width: 300,
-                        height: 300,
-                        fit: BoxFit.cover,
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  /// Pet Image
+                  Center(
+                    child: Hero(
+                      tag: widget.pet.id,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          widget.pet.image,
+                          width: 300,
+                          height: 300,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                PercentSizedBox.height(0.02),
+                  PercentSizedBox.height(0.02),
 
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
 
-                      /// Pet Details
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          BuildText(
-                            text: widget.pet.name,
-                            size: Dimensions.fontSize_32sp,
-                            weight: FontWeight.w700,
-                            color: AppColors.blackColor,
-                          ),
-                          PercentSizedBox.height(.005),
-                          BuildText(
-                            text: 'Breed: ${widget.pet.breed}',
-                            size: Dimensions.fontSize_16sp,
-                            color: AppColors.greyColor,
-                          ),
-                          PercentSizedBox.height(.005),
-                          BuildText(
-                            text: 'Color: ${widget.pet.color}',
-                            size: Dimensions.fontSize_16sp,
-                              color: AppColors.greyColor,
-                          ),
-                           PercentSizedBox.height(.005),
-                          BuildText(
-                            text: 'Age: ${widget.pet.age} years',
-                             size: Dimensions.fontSize_16sp,
-                              color: AppColors.greyColor,
-                          ),
-                        ],
-                      ),
-
-
-                      /// Price Section with Animation
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: Get.width * 0.25,
-                            height: Get.width * 0.25,
-                            child: Lottie.asset(
-                              'assets/animations/donation_animation.json',
-                              repeat: true,
-                              fit: BoxFit.fitWidth,
+                        /// Pet Details
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            BuildText(
+                              text: widget.pet.name,
+                              size: Dimensions.fontSize_32sp,
+                              weight: FontWeight.w700,
+                              color: AppColors.blackColor,
                             ),
-                          ),
+                            PercentSizedBox.height(.005),
+                            BuildText(
+                              text: 'Breed: ${widget.pet.breed}',
+                              size: Dimensions.fontSize_16sp,
+                              color: AppColors.greyColor,
+                            ),
+                            PercentSizedBox.height(.005),
+                            BuildText(
+                              text: 'Color: ${widget.pet.color}',
+                              size: Dimensions.fontSize_16sp,
+                                color: AppColors.greyColor,
+                            ),
+                             PercentSizedBox.height(.005),
+                            BuildText(
+                              text: 'Age: ${widget.pet.age} years',
+                               size: Dimensions.fontSize_16sp,
+                                color: AppColors.greyColor,
+                            ),
+                          ],
+                        ),
 
-                          BuildText(
-                            text: '\$${widget.pet.price.toStringAsFixed(2)}',
-                            size: Dimensions.fontSize_24sp,
-                            weight: FontWeight.bold,
-                            color: AppColors.greenColor,
-                          ),
-                        ],
-                      ),
-                    ],
+
+                        /// Price Section with Animation
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: Get.width * 0.25,
+                              height: Get.width * 0.25,
+                              child: Lottie.asset(
+                                'assets/animations/donation_animation.json',
+                                repeat: true,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
+
+                            BuildText(
+                              text: '\$${widget.pet.price.toStringAsFixed(2)}',
+                              size: Dimensions.fontSize_24sp,
+                              weight: FontWeight.bold,
+                              color: AppColors.greenColor,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
 
-                 PercentSizedBox.height(.05),
+                   PercentSizedBox.height(.05),
 
 
-                /// Animated Icons Row
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      AnimatedIconWidget(
-                        icon: Icons.pets,
-                        label: 'Friendly',
-                        color: AppColors.tealColor,
-                      ),
-                      AnimatedIconWidget(
-                        icon: Icons.local_activity,
-                        label: 'Playful',
-                        color: AppColors.yellowColor,
-                      ),
-                      AnimatedIconWidget(
-                        icon: Icons.health_and_safety,
-                        label: 'Healthy',
-                        color: AppColors.greenColor,
-                      ),
-                    ],
+                  /// Animated Icons Row
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        AnimatedIconWidget(
+                          icon: Icons.pets,
+                          label: 'Friendly',
+                          color: AppColors.tealColor,
+                        ),
+                        AnimatedIconWidget(
+                          icon: Icons.local_activity,
+                          label: 'Playful',
+                          color: AppColors.yellowColor,
+                        ),
+                        AnimatedIconWidget(
+                          icon: Icons.health_and_safety,
+                          label: 'Healthy',
+                          color: AppColors.greenColor,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-
-                Spacer(),
-
-                /// Adopt Button with Animation
-                Center(
-                  child: GestureDetector(
-                    onTap: () {
-                      /// Handle Adoption
-                      if(widget.pet.adopted == false) {
-                        widget.pet.adopted = true;
-                        homeController.onClickAdoption(
-                          pet: widget.pet,
-                          context: context,
-                          confettiController: confettiCtrl
-                      );
-                      }
-                    },
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.easeInOut,
-                      width: Get.width * 0.85,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        gradient:  (widget.pet.adopted == false) ? LinearGradient(
-                          colors: [_buttonColor.withOpacity(0.4), _buttonColor.withOpacity(0.9)],
-                        ) : null,
-                        color: _buttonColor,
-                        boxShadow: [
-                          if(widget.pet.adopted == false)
-                          BoxShadow(
-                            color: _buttonColor.withOpacity(0.4),
-                            blurRadius: 5,
-                            offset: const Offset(0, 5),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.pets, color: AppColors.whiteColor),
-                          PercentSizedBox.width(0.01),
-                          BuildText(
-                            text: widget.pet.adopted ?  AppString.kAdopted : AppString.kAdoptMe,
+                  PercentSizedBox.height(.1),
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        /// Handle Adoption
+                        if(widget.pet.adopted == false) {
+                          widget.pet.adopted = true;
+                          homeController.onClickAdoption(
+                              pet: widget.pet,
+                              context: context,
+                              confettiController: confettiCtrl
+                          );
+                        }
+                      },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeInOut,
+                        width: Get.width * 0.85,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          gradient:  (widget.pet.adopted == false) ? LinearGradient(
+                            colors: [_buttonColor.withOpacity(0.4), _buttonColor.withOpacity(0.9)],
+                          ) : null,
+                          color: _buttonColor,
+                          boxShadow: [
+                            if(widget.pet.adopted == false)
+                              BoxShadow(
+                                color: _buttonColor.withOpacity(0.4),
+                                blurRadius: 5,
+                                offset: const Offset(0, 5),
+                              ),
+                          ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.pets, color: AppColors.whiteColor),
+                            PercentSizedBox.width(0.01),
+                            BuildText(
+                              text: widget.pet.adopted ?  AppString.kAdopted : AppString.kAdoptMe,
                               color: AppColors.whiteColor,
                               size: Dimensions.fontSize_18sp,
                               weight: FontWeight.bold,
-                          ),
-                        ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-
-                PercentSizedBox.height(.04),
-
-              ],
+                  PercentSizedBox.height(.04),
+                ],
+              ),
             ),
             Align(
               alignment: Alignment.center,

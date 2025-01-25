@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 final updatedPet = await Get.toNamed(
                                     RouteNavigation.petDetailScreenRoute,
                                     arguments: PetDetailScreen(
-                                        pet: homeCtrl.filteredPets[index],
+                                        pet: item,
                                         index: index
                                     )
                                 );

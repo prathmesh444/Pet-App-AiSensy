@@ -13,7 +13,7 @@ void main() {
     setUp(() {
       historyController = Get.put(HistoryController());
     });
-    
+
 
     test('adoptedPet list should be sorted by adoptionDate in descending order', () {
       historyController.initializeAdoptedPets();
