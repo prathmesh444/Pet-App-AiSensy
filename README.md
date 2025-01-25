@@ -5,7 +5,7 @@ Welcome to the **Pet Adoption App**! This application helps users browse a list 
 ---
 
 ## 📱 Download APK  
-You can download the latest release APK from the [Releases](https://github.com/your-repo-name/releases) section of this repository.  
+You can download the latest release APK from the [Releases](https://github.com/prathmesh444/Pet-App-AiSensy/releases/tag/v1.0.0) section of this repository.  
 
 ---
 
