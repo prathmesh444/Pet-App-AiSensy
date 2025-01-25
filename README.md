@@ -1,16 +1,46 @@
-# pet_app
+# Pet Adoption App  
 
-A new Flutter project.
+Welcome to the **Pet Adoption App**! This application helps users browse a list of adorable pets available for adoption and keep track of their adoption history.  
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 Download APK  
+You can download the latest release APK from the [Releases](https://github.com/your-repo-name/releases) section of this repository.  
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ✨ Features  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 1. **Pagination**  
+- Smooth scrolling with pagination for loading pet lists efficiently.  
+
+### 2. **Pet List**  
+- Displays a list of available pets with images, names, and brief details.  
+
+### 3. **Pet Detail Page**  
+- View detailed information about each pet, including age, breed, and more.  
+
+### 4. **Local Storage**  
+- Keeps track of user preferences and adoption history using local storage.  
+
+### 5. **Adoption History**  
+- View the complete history of adopted pets for a personalized experience.  
+
+### 6. **Unit Tests**  
+- Thorough testing for backend logic and business rules to ensure a bug-free experience.  
+
+### 7. **Widget Tests**  
+- UI components are rigorously tested for a smooth user interface.  
+
+---
+
+## 🚀 How to Build and Run  
+
+### Prerequisites  
+- **Flutter SDK** installed ([Installation Guide](https://docs.flutter.dev/get-started/install))  
+- Compatible IDE: [Android Studio](https://developer.android.com/studio) or [VS Code](https://code.visualstudio.com/)  
+
+### Steps  
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/your-repo-name.git
